@@ -89,7 +89,7 @@ public class MagicWand extends Item implements IArcane {
 			world.spawnEntityInWorld(new EntityWandProjectile(world,
 					magicCaster, this, false));
 		} else if (this.wandType.equals(WandType.RAY) && world.isRemote) {
-			MovingObjectPosition rayTrace = Minecraft.getMinecraft().renderViewEntity
+			MovingObjectPosition rayTrace = Minecraft.getMinecraft().getRenderViewEntity()
 					.rayTrace(300, 1.0f);
 			spellInterpreter.setupRayVariablesInPython(rayTrace);
 			castStoredSpell();
