@@ -34,18 +34,18 @@ public class MagicWand extends Item implements IArcane {
 		this.setCreativeTab(creativeModeInventoryTab);
 		storedSpell = spell;
 		if (wandHasHardcodedTexture()) {
-			this.setTextureName(TechMageMod.MODID + ":"
+			this.setUnlocalizedName(TechMageMod.MODID + ":"
 					+ spell.getSpellShortName()
 					+ ScriptLoaderConstants.WAND_TEXTURE_NAME_SUFFIX);
 		} else if (this.getSpell().hasCustomTexture()) {
 			String customTextureName = this.getSpell().getCustomTextureName();
 			if (customTextureName.contains(":")) {
-				this.setTextureName(customTextureName);
+				this.setUnlocalizedName(customTextureName);
 			} else {
-				this.setTextureName("minecraft:" + customTextureName);
+				this.setUnlocalizedName("minecraft:" + customTextureName);
 			}
 		} else {
-			this.setTextureName(WandTextureRepository.SINGLETON()
+			this.setUnlocalizedName(WandTextureRepository.SINGLETON()
 					.getNextWandTextureName());
 		}
 		this.maxStackSize = 1;
