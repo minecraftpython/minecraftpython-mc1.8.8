@@ -1,7 +1,9 @@
 package org.sapphon.minecraft.modding.minecraftpython.command;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.EnumParticleTypes;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class CommandMPSpawnParticle extends CommandMPClient {
@@ -37,7 +39,7 @@ public class CommandMPSpawnParticle extends CommandMPClient {
 			double xPlusOrMinusOneHalf = x -.5 + rand.nextDouble();
 			double yPlusOrMinusOneHalf = y -.5 + rand.nextDouble();
 			double zPlusOrMinusOneHalf = z -.5 + rand.nextDouble();
-			Minecraft.getMinecraft().renderGlobal.spawnParticle(particleType, xPlusOrMinusOneHalf, yPlusOrMinusOneHalf, zPlusOrMinusOneHalf, 0d, 0d, 0d);
+			Minecraft.getMinecraft().renderGlobal.spawnParticle(EnumParticleTypes.valueOf(particleType).getParticleID(), true, xPlusOrMinusOneHalf, yPlusOrMinusOneHalf, zPlusOrMinusOneHalf, 0d, 0d, 0d);
 		}
 	}
 

@@ -2,6 +2,7 @@ package org.sapphon.minecraft.modding.minecraftpython.command;
 
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.WorldServer;
 
 public class CommandMPSpawnLightningBolt extends CommandMPServer{
@@ -17,7 +18,7 @@ public class CommandMPSpawnLightningBolt extends CommandMPServer{
 			int x = -175;
 			int z = 60;
 			
-			int y = world.getTopSolidOrLiquidBlock(x, z) - 1;
+			int y = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY() - 1;
 			EntityLightningBolt entityLightningBolt = new EntityLightningBolt(world, x, y, z);
 			world.addWeatherEffect(entityLightningBolt);
 			world.spawnEntityInWorld(entityLightningBolt);
