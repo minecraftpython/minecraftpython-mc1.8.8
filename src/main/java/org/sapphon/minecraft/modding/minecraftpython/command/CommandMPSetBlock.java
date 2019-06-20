@@ -1,11 +1,13 @@
 package org.sapphon.minecraft.modding.minecraftpython.command;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.WorldServer;
 import org.sapphon.minecraft.modding.base.BlockFinder;
 
@@ -46,16 +48,15 @@ public class CommandMPSetBlock extends CommandMPServer {
 				.worldServerForDimension(0);// TODO
 		Block blocky = BlockFinder.getBlockWithName(blockType);
 		
-		boolean setBlock = worldserver.setBlock(x, y, z, blocky, metadata, 3);
+		boolean setBlock = worldserver.setBlockState(new BlockPos(x, y, z), new BlockState(blocky).getBaseState());//, metadata), 3);
 		if (!tileEntityNbtData.isEmpty() && !tileEntityNbtData.equals("{}")) {
 			NBTTagCompound nbtTagCompound = null;
 			try {
-				nbtTagCompound = (NBTTagCompound) JsonToNBT
-						.func_150315_a(tileEntityNbtData);
+				nbtTagCompound = (NBTTagCompound) JsonToNBT.getTagFromJson(tileEntityNbtData);
 			} catch (NBTException e) {
 				e.printStackTrace();
 			}
-			TileEntity tileentity = worldserver.getTileEntity(x, y, z);
+			TileEntity tileentity = worldserver.getTileEntity(new BlockPos(x, y, z));
 
 			if (tileentity != null && nbtTagCompound != null) {
 				nbtTagCompound.setInteger("x", x);

@@ -20,7 +20,6 @@ public class CommandMPChangeSettings extends CommandMPClient {
 			Minecraft.getMinecraft().gameSettings.setOptionFloatValue(Options.FOV, 0);
 			Minecraft.getMinecraft().gameSettings.setOptionValue(Options.RENDER_DISTANCE, Math.min(Minecraft.getMinecraft().gameSettings.renderDistanceChunks, 4));
 			Minecraft.getMinecraft().gameSettings.setOptionValue(Options.FRAMERATE_LIMIT, 24);
-			Minecraft.getMinecraft().gameSettings.setOptionValue(Options.ADVANCED_OPENGL, 0);
 			Minecraft.getMinecraft().gameSettings.setOptionValue(Options.GRAPHICS, 0);
 			Minecraft.getMinecraft().gameSettings.saveOptions();
 	}

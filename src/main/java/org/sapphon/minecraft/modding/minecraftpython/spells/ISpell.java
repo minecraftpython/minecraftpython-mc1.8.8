@@ -1,5 +1,7 @@
 package org.sapphon.minecraft.modding.minecraftpython.spells;
 
+import org.python.core.PyCode;
+import org.python.util.PythonInterpreter;
 import org.sapphon.minecraft.modding.techmage.wands.WandType;
 
 import java.io.File;
