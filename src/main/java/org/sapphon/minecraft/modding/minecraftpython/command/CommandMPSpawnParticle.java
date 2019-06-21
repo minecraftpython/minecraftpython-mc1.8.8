@@ -39,7 +39,16 @@ public class CommandMPSpawnParticle extends CommandMPClient {
 			double xPlusOrMinusOneHalf = x -.5 + rand.nextDouble();
 			double yPlusOrMinusOneHalf = y -.5 + rand.nextDouble();
 			double zPlusOrMinusOneHalf = z -.5 + rand.nextDouble();
-			Minecraft.getMinecraft().renderGlobal.spawnParticle(EnumParticleTypes.valueOf(particleType).getParticleID(), true, xPlusOrMinusOneHalf, yPlusOrMinusOneHalf, zPlusOrMinusOneHalf, 0d, 0d, 0d);
+			if(safelyGetParticleEnum() != null) Minecraft.getMinecraft().renderGlobal.spawnParticle(safelyGetParticleEnum().getParticleID(), true, xPlusOrMinusOneHalf, yPlusOrMinusOneHalf, zPlusOrMinusOneHalf, 0d, 0d, 0d);
+		}
+	}
+
+	private EnumParticleTypes safelyGetParticleEnum() {
+		try{
+			return EnumParticleTypes.valueOf(particleType);
+		}
+		catch(Exception e){
+			return null;
 		}
 	}
 
