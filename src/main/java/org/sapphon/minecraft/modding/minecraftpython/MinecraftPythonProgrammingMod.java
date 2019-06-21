@@ -22,7 +22,7 @@ import org.sapphon.minecraft.modding.minecraftpython.spells.ThreadFactory;
 @Mod(modid = MinecraftPythonProgrammingMod.MODID, version = MinecraftPythonProgrammingMod.VERSION, name = MinecraftPythonProgrammingMod.MODID)
 public class MinecraftPythonProgrammingMod {
 	public static final String MODID = "minecraftpython";
-	public static final String VERSION = "1.8.8-0.3.5";
+	public static final String VERSION = "1.8.8-0.4.0";
 	public static final int SCRIPT_RUN_COOLDOWN = 1500;
 	public static final Logger logger = LogManager.getLogger(MinecraftPythonProgrammingMod.MODID);
 	@Mod.EventHandler
