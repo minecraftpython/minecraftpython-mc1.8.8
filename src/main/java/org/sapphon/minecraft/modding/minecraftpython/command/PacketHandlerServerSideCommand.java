@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class PacketHandlerServerSideCommand implements
-		IMessageHandler<IMessage, IMessage> {
+		IMessageHandler<PacketServerSideCommand, IMessage> {
 	public PacketHandlerServerSideCommand(){
 		
 	}
@@ -14,9 +14,9 @@ public class PacketHandlerServerSideCommand implements
 		CommandQueueServerSide.SINGLETON().scheduleCommand(message.command);
 		return null;
 	}
-
+/*
 	@Override
 	public IMessage onMessage(IMessage message, MessageContext ctx) {
 		return null;
-	}
+	}*/
 }
