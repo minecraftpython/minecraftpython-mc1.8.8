@@ -2,6 +2,7 @@ package org.sapphon.minecraft.modding.minecraftpython.command;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumParticleTypes;
+import org.sapphon.minecraft.modding.minecraftpython.MinecraftPythonProgrammingMod;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -48,6 +49,7 @@ public class CommandMPSpawnParticle extends CommandMPClient {
 			return EnumParticleTypes.valueOf(particleType);
 		}
 		catch(Exception e){
+			MinecraftPythonProgrammingMod.logger.error(String.format("Particle type [%s] not found", particleType));
 			return null;
 		}
 	}
