@@ -46,7 +46,7 @@ public class CommandMPSpawnParticle extends CommandMPClient {
 
 	private EnumParticleTypes safelyGetParticleEnum() {
 		try{
-			return EnumParticleTypes.valueOf(particleType);
+			return EnumParticleTypes.valueOf(particleType.toUpperCase());
 		}
 		catch(Exception e){
 			MinecraftPythonProgrammingMod.logger.error(String.format("Particle type [%s] not found", particleType));
