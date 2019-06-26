@@ -5,7 +5,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.WorldServer;
 
-public class CommandMPSpawnLightningBolt extends CommandMPServer{
+public class CommandMPSpawnLightningBolt extends CommandMinecraftPythonServer {
 
 	
 	
@@ -25,6 +25,6 @@ public class CommandMPSpawnLightningBolt extends CommandMPServer{
 	}
 	@Override
 	public String serialize() {
-		return CommandMPServer.LIGHTNINGBOLT_NAME;
+		return CommandMinecraftPythonServer.LIGHTNINGBOLT_NAME;
 	}
 }

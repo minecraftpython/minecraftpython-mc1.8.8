@@ -12,7 +12,7 @@ import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 
 public class CommandMPExecuteConsoleCommand extends
-		CommandMPServer {
+        CommandMinecraftPythonServer {
 	
 	private String commandString;
 	private String playerName;

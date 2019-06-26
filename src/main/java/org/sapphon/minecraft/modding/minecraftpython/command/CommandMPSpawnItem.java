@@ -10,7 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 
-public class CommandMPSpawnItem extends CommandMPServer {
+public class CommandMPSpawnItem extends CommandMinecraftPythonServer {
 	private double x;
 	public double y;
 	private double z;
@@ -65,6 +65,6 @@ public class CommandMPSpawnItem extends CommandMPServer {
 
 	@Override
 	public String serialize() {
-		return CommandMPServer.SPAWNITEM_NAME+ CommandMPAbstract.SERIAL_DIV + x + CommandMPAbstract.SERIAL_DIV + y + CommandMPAbstract.SERIAL_DIV + z + CommandMPAbstract.SERIAL_DIV +name + CommandMPAbstract.SERIAL_DIV + numberOfItemsToSpawn + CommandMPAbstract.SERIAL_DIV + nbtString;
+		return CommandMinecraftPythonServer.SPAWNITEM_NAME+ CommandMinecraftPythonAbstract.SERIAL_DIV + x + CommandMinecraftPythonAbstract.SERIAL_DIV + y + CommandMinecraftPythonAbstract.SERIAL_DIV + z + CommandMinecraftPythonAbstract.SERIAL_DIV +name + CommandMinecraftPythonAbstract.SERIAL_DIV + numberOfItemsToSpawn + CommandMinecraftPythonAbstract.SERIAL_DIV + nbtString;
 	}
 }

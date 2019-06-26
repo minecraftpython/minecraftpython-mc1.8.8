@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
-public class CommandMPSpawnEntity extends CommandMPServer {
+public class CommandMPSpawnEntity extends CommandMinecraftPythonServer {
 	public double x;
 	public double y;
 	public double z;
@@ -63,12 +63,12 @@ public class CommandMPSpawnEntity extends CommandMPServer {
 
 	@Override
 	public String serialize() {
-		return CommandMPServer.SPAWNENTITY_NAME
-				+ CommandMPAbstract.SERIAL_DIV + x
-				+ CommandMPAbstract.SERIAL_DIV + y
-				+ CommandMPAbstract.SERIAL_DIV + z
-				+ CommandMPAbstract.SERIAL_DIV + nameOfEntityToSpawn
-				+ CommandMPAbstract.SERIAL_DIV + nbtData;
+		return CommandMinecraftPythonServer.SPAWNENTITY_NAME
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + x
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + y
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + z
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + nameOfEntityToSpawn
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + nbtData;
 	}
 
 }

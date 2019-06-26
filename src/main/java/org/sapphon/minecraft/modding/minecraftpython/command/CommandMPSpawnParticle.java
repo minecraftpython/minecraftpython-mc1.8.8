@@ -2,12 +2,11 @@ package org.sapphon.minecraft.modding.minecraftpython.command;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumParticleTypes;
-import org.sapphon.minecraft.modding.minecraftpython.MinecraftPythonProgrammingMod;
+import org.sapphon.minecraft.modding.minecraftpython.MinecraftPythonMod;
 
-import java.util.ArrayList;
 import java.util.Random;
 
-public class CommandMPSpawnParticle extends CommandMPClient {
+public class CommandMPSpawnParticle extends CommandMinecraftPythonClient {
 	
 	private double x;
 	private double y;
@@ -49,7 +48,7 @@ public class CommandMPSpawnParticle extends CommandMPClient {
 			return EnumParticleTypes.valueOf(particleType.toUpperCase());
 		}
 		catch(Exception e){
-			MinecraftPythonProgrammingMod.logger.error(String.format("Particle type [%s] not found", particleType));
+			MinecraftPythonMod.logger.error(String.format("Particle type [%s] not found", particleType));
 			return null;
 		}
 	}

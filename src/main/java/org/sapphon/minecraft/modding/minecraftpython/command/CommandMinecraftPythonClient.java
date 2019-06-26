@@ -2,7 +2,7 @@ package org.sapphon.minecraft.modding.minecraftpython.command;
 
 import net.minecraft.client.Minecraft;
 
-public abstract class CommandMPClient extends CommandMPAbstract {
+public abstract class CommandMinecraftPythonClient extends CommandMinecraftPythonAbstract {
 	protected String targetPlayerName;
 	public static final String CHANGESETTINGS_NAME = "cs";
 	public static final String SPAWNPARTICLE_NAME = "pa";

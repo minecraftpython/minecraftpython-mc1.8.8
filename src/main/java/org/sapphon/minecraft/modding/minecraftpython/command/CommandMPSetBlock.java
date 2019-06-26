@@ -11,7 +11,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.WorldServer;
 import org.sapphon.minecraft.modding.base.BlockFinder;
 
-public class CommandMPSetBlock extends CommandMPServer {
+public class CommandMPSetBlock extends CommandMinecraftPythonServer {
 
 	private int x;
 	private int y;
@@ -69,7 +69,7 @@ public class CommandMPSetBlock extends CommandMPServer {
 
 	@Override
 	public String serialize() {
-		return CommandMPServer.SETBLOCK_NAME + SERIAL_DIV + x
+		return CommandMinecraftPythonServer.SETBLOCK_NAME + SERIAL_DIV + x
 				+ SERIAL_DIV + y + SERIAL_DIV + z + SERIAL_DIV + blockType
 				+ SERIAL_DIV + metadata + SERIAL_DIV + tileEntityNbtData;
 	}

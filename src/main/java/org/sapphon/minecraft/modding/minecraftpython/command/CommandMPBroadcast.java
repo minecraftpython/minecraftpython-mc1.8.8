@@ -3,7 +3,7 @@ package org.sapphon.minecraft.modding.minecraftpython.command;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 
-public class CommandMPBroadcast extends CommandMPServer {
+public class CommandMPBroadcast extends CommandMinecraftPythonServer {
 
 	public String toBroadcast;
 
@@ -22,7 +22,7 @@ public class CommandMPBroadcast extends CommandMPServer {
 
 	@Override
 	public String serialize() {
-		return CommandMPServer.BROADCAST_NAME + CommandMPAbstract.SERIAL_DIV + toBroadcast;
+		return CommandMinecraftPythonServer.BROADCAST_NAME + CommandMinecraftPythonAbstract.SERIAL_DIV + toBroadcast;
 	}
 
 

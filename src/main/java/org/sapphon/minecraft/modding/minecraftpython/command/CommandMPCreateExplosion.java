@@ -5,7 +5,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 
-public class CommandMPCreateExplosion extends CommandMPServer {
+public class CommandMPCreateExplosion extends CommandMinecraftPythonServer {
 
 	public int x;
 	public int y;
@@ -57,7 +57,7 @@ public class CommandMPCreateExplosion extends CommandMPServer {
 	}
 	@Override
 	public String serialize() {
-		return CommandMPServer.CREATEEXPLOSION_NAME+ CommandMPAbstract.SERIAL_DIV + x + CommandMPAbstract.SERIAL_DIV + y + CommandMPAbstract.SERIAL_DIV + z + CommandMPAbstract.SERIAL_DIV + size;
+		return CommandMinecraftPythonServer.CREATEEXPLOSION_NAME+ CommandMinecraftPythonAbstract.SERIAL_DIV + x + CommandMinecraftPythonAbstract.SERIAL_DIV + y + CommandMinecraftPythonAbstract.SERIAL_DIV + z + CommandMinecraftPythonAbstract.SERIAL_DIV + size;
 	}
 	
 }

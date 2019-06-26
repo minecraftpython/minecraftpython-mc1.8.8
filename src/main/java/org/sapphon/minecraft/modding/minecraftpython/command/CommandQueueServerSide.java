@@ -1,7 +1,7 @@
 package org.sapphon.minecraft.modding.minecraftpython.command;
 
-import org.sapphon.minecraft.modding.minecraftpython.MinecraftPythonProgrammingMod;
-import org.sapphon.minecraft.modding.minecraftpython.PacketClientSideCommand;
+import org.sapphon.minecraft.modding.minecraftpython.MinecraftPythonMod;
+import org.sapphon.minecraft.modding.minecraftpython.PacketMinecraftPythonClientCommand;
 
 import java.util.ArrayList;
 
@@ -14,11 +14,11 @@ public class CommandQueueServerSide extends CommandQueueAbstract {
 	}
 
 	public synchronized void scheduleCommand(ICommand command) {
-		if (command instanceof CommandMPServer) {
+		if (command instanceof CommandMinecraftPythonServer) {
 			this.scheduledCommands.add(command);
-		} else if (command instanceof CommandMPClient) {
-			CommandMPClient cast = (CommandMPClient) command;
-			MinecraftPythonProgrammingMod.clientCommandPacketChannel.sendToAll(new PacketClientSideCommand(
+		} else if (command instanceof CommandMinecraftPythonClient) {
+			CommandMinecraftPythonClient cast = (CommandMinecraftPythonClient) command;
+			MinecraftPythonMod.clientCommandPacketChannel.sendToAll(new PacketMinecraftPythonClientCommand(
 					cast));
 		}
 	}

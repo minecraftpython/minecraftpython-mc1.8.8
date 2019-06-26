@@ -8,7 +8,7 @@ import net.minecraft.world.WorldServer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandMPTeleport extends CommandMPServer {
+public class CommandMPTeleport extends CommandMinecraftPythonServer {
 
 	public double x;
 	public double y;
@@ -46,7 +46,7 @@ public class CommandMPTeleport extends CommandMPServer {
 	
 	@Override
 	public String serialize() {
-		return CommandMPServer.TELEPORT_NAME + CommandMPAbstract.SERIAL_DIV + x + CommandMPAbstract.SERIAL_DIV + y + CommandMPAbstract.SERIAL_DIV + z + CommandMPAbstract.SERIAL_DIV + teleportingPlayer;
+		return CommandMinecraftPythonServer.TELEPORT_NAME + CommandMinecraftPythonAbstract.SERIAL_DIV + x + CommandMinecraftPythonAbstract.SERIAL_DIV + y + CommandMinecraftPythonAbstract.SERIAL_DIV + z + CommandMinecraftPythonAbstract.SERIAL_DIV + teleportingPlayer;
 	}
 	
 	

@@ -3,7 +3,7 @@ package org.sapphon.minecraft.modding.minecraftpython.command;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings.Options;
 
-public class CommandMPChangeSettings extends CommandMPClient {
+public class CommandMPChangeSettings extends CommandMinecraftPythonClient {
 
 	private String targetName;
 	

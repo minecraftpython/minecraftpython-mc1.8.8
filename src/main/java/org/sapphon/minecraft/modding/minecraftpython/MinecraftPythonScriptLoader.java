@@ -6,25 +6,25 @@ import org.sapphon.minecraft.modding.techmage.wands.MagicItemFactory;
 
 import java.io.File;
 
-public class MPOnlyScriptLoader {
+public class MinecraftPythonScriptLoader {
 
 	private RudimentaryMagicItem magicVessel;
 
-	private static MPOnlyScriptLoader SINGLETON;
+	private static MinecraftPythonScriptLoader SINGLETON;
 
-	public static MPOnlyScriptLoader SINGLETON() {
+	public static MinecraftPythonScriptLoader SINGLETON() {
 		if (SINGLETON == null)
-			SINGLETON = new MPOnlyScriptLoader("your_code_here");
+			SINGLETON = new MinecraftPythonScriptLoader("your_code_here");
 		return SINGLETON;
 	}
 
-	private MPOnlyScriptLoader(String scriptFileName) {
+	private MinecraftPythonScriptLoader(String scriptFileName) {
 		File scriptsDirectory = new File(ScriptLoaderConstants.MINECRAFT_PROGRAMMING_PATH);
 		if (scriptsDirectory.canRead() && scriptsDirectory.isDirectory()) {
 			try {
 				File script = new File(ScriptLoaderConstants.MINECRAFT_PROGRAMMING_PATH
 						+ File.separatorChar + scriptFileName + ScriptLoaderConstants.PYTHON_SCRIPT_EXTENSION);
-				magicVessel = MagicItemFactory.create(SpellFactory.createNonCachingSpell(script), MinecraftPythonProgrammingMod.SCRIPT_RUN_COOLDOWN);
+				magicVessel = MagicItemFactory.create(SpellFactory.createNonCachingSpell(script), MinecraftPythonMod.SCRIPT_RUN_COOLDOWN);
 			} catch (Exception e) {
 				PythonProblemHandler.printErrorMessageToDialogBox(e);
 			}

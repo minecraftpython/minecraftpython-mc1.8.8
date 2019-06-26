@@ -2,7 +2,7 @@ package org.sapphon.minecraft.modding.minecraftpython.command;
 
 import net.minecraft.client.Minecraft;
 
-public class CommandMPApplyShader extends CommandMPClient {
+public class CommandMPApplyShader extends CommandMinecraftPythonClient {
 
 	private String targetName;
 

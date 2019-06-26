@@ -15,22 +15,22 @@ import org.sapphon.minecraft.modding.base.ClientProxy;
 import org.sapphon.minecraft.modding.base.CommonProxy;
 import org.sapphon.minecraft.modding.base.DedicatedServerProxy;
 import org.sapphon.minecraft.modding.base.ModConfigurationFlags;
-import org.sapphon.minecraft.modding.minecraftpython.command.PacketHandlerServerSideCommand;
-import org.sapphon.minecraft.modding.minecraftpython.command.PacketServerSideCommand;
+import org.sapphon.minecraft.modding.minecraftpython.command.PacketHandlerMinecraftPythonServerCommand;
+import org.sapphon.minecraft.modding.minecraftpython.command.PacketMinecraftPythonServerCommand;
 import org.sapphon.minecraft.modding.minecraftpython.spells.ThreadFactory;
 
-@Mod(modid = MinecraftPythonProgrammingMod.MODID, version = MinecraftPythonProgrammingMod.VERSION, name = MinecraftPythonProgrammingMod.MODID)
-public class MinecraftPythonProgrammingMod {
+@Mod(modid = MinecraftPythonMod.MODID, version = MinecraftPythonMod.VERSION, name = MinecraftPythonMod.MODID)
+public class MinecraftPythonMod {
 	public static final String MODID = "minecraftpython";
 	public static final String VERSION = "1.8.8-0.4.0";
 	public static final int SCRIPT_RUN_COOLDOWN = 1500;
-	public static final Logger logger = LogManager.getLogger(MinecraftPythonProgrammingMod.MODID);
+	public static final Logger logger = LogManager.getLogger(MinecraftPythonMod.MODID);
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
 	}
 
-	@Mod.Instance(value = MinecraftPythonProgrammingMod.MODID)
-	public static MinecraftPythonProgrammingMod instance;
+	@Mod.Instance(value = MinecraftPythonMod.MODID)
+	public static MinecraftPythonMod instance;
 
 	@SidedProxy(clientSide = "org.sapphon.minecraft.modding.base.CombinedClientProxy", serverSide = "org.sapphon.minecraft.modding.base.DedicatedServerProxy")
 	public static CommonProxy proxy;
@@ -44,15 +44,15 @@ public class MinecraftPythonProgrammingMod {
 				ScriptLoaderConstants.setResourcePath(event);
 			}
 				serverCommandPacketChannel = NetworkRegistry.INSTANCE
-						.newSimpleChannel("GSSServerCommand");
+						.newSimpleChannel("MPServerCommand");
 				serverCommandPacketChannel.registerMessage(
-						PacketHandlerServerSideCommand.class,
-						PacketServerSideCommand.class, 0, Side.SERVER);
+						PacketHandlerMinecraftPythonServerCommand.class,
+						PacketMinecraftPythonServerCommand.class, 0, Side.SERVER);
 				clientCommandPacketChannel = NetworkRegistry.INSTANCE
-						.newSimpleChannel("GSSClientCommand");
+						.newSimpleChannel("MPClientCommand");
 				clientCommandPacketChannel.registerMessage(
-						PacketHandlerClientSideCommand.class,
-						PacketClientSideCommand.class, 0, Side.CLIENT);
+						PacketHandlerMinecraftPythonClientCommand.class,
+						PacketMinecraftPythonClientCommand.class, 0, Side.CLIENT);
 		}
 	}
 
@@ -67,8 +67,8 @@ public class MinecraftPythonProgrammingMod {
 					.instance()
 					.bus()
 					.register(
-							new MinecraftProgrammingKeyHandler(
-									MPOnlyScriptLoader.SINGLETON()
+							new MinecraftPythonKeyHandler(
+									MinecraftPythonScriptLoader.SINGLETON()
 											.getMagicVessel()));
 		}
 		proxy.registerRenderers();

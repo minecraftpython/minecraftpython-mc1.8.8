@@ -5,28 +5,28 @@ import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import org.sapphon.minecraft.modding.minecraftpython.command.*;
 
-public class PacketClientSideCommand implements IMessage {
+public class PacketMinecraftPythonClientCommand implements IMessage {
 
 	
-	private CommandMPClient command;
+	private CommandMinecraftPythonClient command;
 
-	public PacketClientSideCommand(CommandMPClient commandToPackUp){
+	public PacketMinecraftPythonClientCommand(CommandMinecraftPythonClient commandToPackUp){
 		this.command = commandToPackUp;
 	}
 	
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		String text = ByteBufUtils.readUTF8String(buf);
-		String[] commandAndArgsToDeserialize = text.split(CommandMPAbstract.SERIAL_DIV);
+		String[] commandAndArgsToDeserialize = text.split(CommandMinecraftPythonAbstract.SERIAL_DIV);
 		String commandName = commandAndArgsToDeserialize[0].trim();
 
-		if(commandName.equals(CommandMPClient.SPAWNPARTICLE_NAME)){
+		if(commandName.equals(CommandMinecraftPythonClient.SPAWNPARTICLE_NAME)){
 			command = new CommandMPSpawnParticle(commandAndArgsToDeserialize);
 			
-		} else if (commandName.equals(CommandMPClient.SECRETSETTINGS_NAME)) {
+		} else if (commandName.equals(CommandMinecraftPythonClient.SECRETSETTINGS_NAME)) {
 			command = new CommandMPApplyShader(commandAndArgsToDeserialize);
 	
-		} else if (commandName.equals(CommandMPClient.CHANGESETTINGS_NAME)) {
+		} else if (commandName.equals(CommandMinecraftPythonClient.CHANGESETTINGS_NAME)) {
 			command = new CommandMPChangeSettings(commandAndArgsToDeserialize);	
 		}
 	}
@@ -37,7 +37,7 @@ public class PacketClientSideCommand implements IMessage {
 		ByteBufUtils.writeUTF8String(buf, serializedCommand);
 	}
 
-	public CommandMPClient getCommand() {
+	public CommandMinecraftPythonClient getCommand() {
 		return command;
 	}
 }

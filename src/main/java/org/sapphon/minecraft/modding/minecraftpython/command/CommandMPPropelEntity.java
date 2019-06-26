@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandMPPropelEntity extends CommandMPServer {
+public class CommandMPPropelEntity extends CommandMinecraftPythonServer {
 
 	public double xVel;
 	public double yVel;
@@ -52,10 +52,10 @@ public class CommandMPPropelEntity extends CommandMPServer {
 
 	@Override
 	public String serialize() {
-		return CommandMPServer.PROPEL_NAME
-				+ CommandMPAbstract.SERIAL_DIV + xVel
-				+ CommandMPAbstract.SERIAL_DIV + yVel
-				+ CommandMPAbstract.SERIAL_DIV + zVel
-				+ CommandMPAbstract.SERIAL_DIV + idToPropel;
+		return CommandMinecraftPythonServer.PROPEL_NAME
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + xVel
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + yVel
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + zVel
+				+ CommandMinecraftPythonAbstract.SERIAL_DIV + idToPropel;
 	}
 }

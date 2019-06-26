@@ -1,7 +1,7 @@
 package org.sapphon.minecraft.modding.minecraftpython.command;
 
 
-public abstract class CommandMPServer extends CommandMPAbstract {
+public abstract class CommandMinecraftPythonServer extends CommandMinecraftPythonAbstract {
 
 	public static final String CREATEEXPLOSION_NAME = "ce"; 
 	public static final String SETBLOCK_NAME = "sb";
