@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
-/*
+
 public class CommandMPExecuteConsoleCommand extends
 		CommandMPServer {
 	
@@ -19,12 +19,11 @@ public class CommandMPExecuteConsoleCommand extends
 	
 	public CommandMPExecuteConsoleCommand(String commandText){
 		this.commandString = commandText;
-		this.playerName = Minecraft.getMinecraft().thePlayer.getDisplayName().getFormattedText();
+		this.playerName = Minecraft.getMinecraft().thePlayer.getDisplayName().getUnformattedText();
 	}
 	
 	public CommandMPExecuteConsoleCommand(String[] commandAndArgsToDeserialize) {
 		this.commandString = commandAndArgsToDeserialize[1];
-		System.out.println(commandString);
 		this.playerName = commandAndArgsToDeserialize[2];
 	}
     private static String[] dropFirstString(String[] par0ArrayOfStr)
@@ -46,7 +45,7 @@ public class CommandMPExecuteConsoleCommand extends
         String[] astring = commandString.split(" ");
         String s1 = astring[0];
         astring = dropFirstString(astring);
-        ICommand icommand = (ICommand)MinecraftServer.getServer().getCommandManager().getCommands().get(s1);
+        ICommand icommand = MinecraftServer.getServer().getCommandManager().getCommands().get(s1);
         int i = this.getUsernameIndex(icommand, astring);
         int j = 0;
 
@@ -59,7 +58,8 @@ public class CommandMPExecuteConsoleCommand extends
 
                 if (i > -1)
                 {
-                    EntityPlayerMP[] aentityplayermp = PlayerSelector.matchOnePlayer(playerObject, astring[i]);
+                    EntityPlayerMP[] aentityplayermp = new EntityPlayerMP[0];
+                    aentityplayermp = PlayerSelector.matchEntities(playerObject, astring[i], EntityPlayerMP.class).toArray(aentityplayermp);
                     String s2 = astring[i];
                     EntityPlayerMP[] aentityplayermp1 = aentityplayermp;
                     int k = aentityplayermp.length;
@@ -125,4 +125,3 @@ public class CommandMPExecuteConsoleCommand extends
 		return CONSOLECOMMAND_NAME + SERIAL_DIV + commandString + SERIAL_DIV + playerName;
 	}
 }
-*/

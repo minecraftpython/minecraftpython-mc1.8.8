@@ -47,7 +47,7 @@ public class PacketServerSideCommand implements IMessage {
 		}else if(commandName.equals(CommandMPServer.SPAWNITEM_NAME)){
 			command = new CommandMPSpawnItem(commandAndArgsToDeserialize);
 		}else if(commandName.equals(CommandMPServer.CONSOLECOMMAND_NAME)){
-			//command = new CommandMPExecuteConsoleCommand(commandAndArgsToDeserialize);	//TODO oops 1.8
+			command = new CommandMPExecuteConsoleCommand(commandAndArgsToDeserialize);	//TODO oops 1.8
 		}
 		else {
 			JavaProblemHandler.printErrorMessageToDialogBox(new Exception(

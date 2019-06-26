@@ -16,7 +16,7 @@ public class CommandMPTeleport extends CommandMPServer {
 	public String teleportingPlayer;
 
 	public CommandMPTeleport(double x, double y, double z){
-		this(x,y,z, Minecraft.getMinecraft().thePlayer.getDisplayName().getFormattedText());
+		this(x,y,z, Minecraft.getMinecraft().thePlayer.getDisplayName().getUnformattedText());
 	}
 	
 	public CommandMPTeleport(double x, double y, double z, String teleportingPlayerDisplayName){
@@ -35,7 +35,7 @@ public class CommandMPTeleport extends CommandMPServer {
 
 	public void doWork(){
 		WorldServer world = MinecraftServer.getServer().worldServerForDimension(0);
-		List<EntityPlayer> players = new ArrayList<EntityPlayer>(world.playerEntities);	//I have never seen a ConcurrentModException with this guy but why risk it?
+		List<EntityPlayer> players = new ArrayList<EntityPlayer>(world.playerEntities);
 		for (EntityPlayer entityPlayerMP : players) {
 			if(entityPlayerMP.getDisplayName().equals(teleportingPlayer)){
 				entityPlayerMP.setPositionAndRotation(x, y, z, entityPlayerMP.rotationYaw, entityPlayerMP.rotationPitch);	//TODO UNTESTED thrfr SUSPECT
