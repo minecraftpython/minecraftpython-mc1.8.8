@@ -48,7 +48,7 @@ public class CommandMPSetBlock extends CommandMinecraftPythonServer {
 				.worldServerForDimension(0);// TODO
 		Block blocky = BlockFinder.getBlockWithName(blockType);
 		
-		boolean setBlock = worldserver.setBlockState(new BlockPos(x, y, z), new BlockState(blocky).getBaseState());//, metadata), 3);
+		boolean setBlock = worldserver.setBlockState(new BlockPos(x, y, z), blocky.getStateFromMeta(metadata));
 		if (!tileEntityNbtData.isEmpty() && !tileEntityNbtData.equals("{}")) {
 			NBTTagCompound nbtTagCompound = null;
 			try {
