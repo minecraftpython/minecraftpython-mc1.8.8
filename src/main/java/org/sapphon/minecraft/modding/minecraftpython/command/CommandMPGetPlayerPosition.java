@@ -19,7 +19,7 @@ public class CommandMPGetPlayerPosition{
 		EntityPlayer player = getCorrectPlayer();
 		return new int[]{
 			(int)Math.round(player.posX),
-			(int)Math.round(player.posY),
+			(int)Math.round(player.posY + player.getEyeHeight()),
 			(int)Math.round(player.posZ)
 		};
 	}
